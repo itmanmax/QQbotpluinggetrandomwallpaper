@@ -26,7 +26,7 @@ class randomwallpaperPlugin(BasePlugin):
     async def _(self, event: EventContext):
         try:
             text = event.event.text_message
-            if text == "randomwallpaper" or text == "60s":
+            if text == "randomwallpaper" or text == "随机壁纸":
                 event.prevent_default()
                 event.prevent_postorder()
                 # 发送图片
