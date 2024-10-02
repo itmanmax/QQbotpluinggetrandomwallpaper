@@ -11,11 +11,11 @@ import traceback
 
 
 # 注册插件
-@register(name="News60s", description="Hello News60s", version="0.1", author="RockChinQ")
-class News60sPlugin(BasePlugin):
+@register(name="randomwallpaper", description="Hello randomwallpaper", version="0.1", author="max")
+class randomwallpaperPlugin(BasePlugin):
 
     # API URL
-    image_api_url = "https://api.andeer.top/API/60s.php"
+    image_api_url = "https://api.btstu.cn/sjbz/api.php?lx=dongman&format=images"
 
     # 插件加载时触发
     def __init__(self, host: APIHost):
@@ -26,7 +26,7 @@ class News60sPlugin(BasePlugin):
     async def _(self, event: EventContext):
         try:
             text = event.event.text_message
-            if text == "news60s" or text == "60s":
+            if text == "randomwallpaper" or text == "60s":
                 event.prevent_default()
                 event.prevent_postorder()
                 # 发送图片
@@ -35,7 +35,7 @@ class News60sPlugin(BasePlugin):
                     event.add_return("reply", [Image(url=response.url)])
                 else:
                     event.add_return("reply", ["图片获取失败，请稍后再试。"])
-                logging.info("News60s!")
+                logging.info("randomwallpaper!")
         except Exception as e:
             logging.error(traceback.format_exc())
 
